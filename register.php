@@ -82,15 +82,15 @@ if(isset($_POST['submit'])){
       <div class="flex">
          <div class="col">
             <p>Your name <span>*</span></p>
-            <input type="text" name="name" placeholder="eneter your name" maxlength="50" required class="box">
+            <input type="text" name="name" placeholder="Enter your name" maxlength="50" required class="box">
             <p>Your email <span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+            <input type="email" name="email" placeholder="Enter your email" maxlength="20" required class="box">
          </div>
          <div class="col">
             <p>Your password <span>*</span></p>
-            <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
+            <input type="password" name="pass" placeholder="Enter your password" maxlength="20" required class="box">
             <p>Confirm password <span>*</span></p>
-            <input type="password" name="cpass" placeholder="confirm your password" maxlength="20" required class="box">
+            <input type="password" name="cpass" placeholder="Eonfirm your password" maxlength="20" required class="box">
          </div>
       </div>
       <p>Select pic <span>*</span></p>

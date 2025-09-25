@@ -83,7 +83,7 @@ if(isset($message)){
       <div class="flex">
          <div class="col">
             <p>Your name <span>*</span></p>
-            <input type="text" name="name" placeholder="Eneter Your Name" maxlength="50" required class="box">
+            <input type="text" name="name" placeholder="Enter Your Name" maxlength="50" required class="box">
             <p>Your profession <span>*</span></p>
             <select name="profession" class="box" required>
                <option value="" disabled selected>-- Select Your Subject</option>
