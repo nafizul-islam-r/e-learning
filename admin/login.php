@@ -2,6 +2,12 @@
 
 include '../components/connect.php';
 
+if(isset($_COOKIE['tutor_id'])){
+   $user_id = $_COOKIE['tutor_id'];
+}else{
+   $user_id = '';
+}
+
 if(isset($_POST['submit'])){
 
    $email = $_POST['email'];
@@ -15,7 +21,7 @@ if(isset($_POST['submit'])){
    
    if($select_tutor->rowCount() > 0){
      setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-     header('location:dashboard.php');
+     header('location:home.php');
    }else{
       $message[] = 'Incorrect Email or Password!';
    }

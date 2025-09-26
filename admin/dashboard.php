@@ -2,9 +2,9 @@
 
 include '../components/connect.php';
 
-if(isset($_COOKIE['tutor_id'])){
+if (isset($_COOKIE['tutor_id'])) {
    $tutor_id = $_COOKIE['tutor_id'];
-}else{
+} else {
    $tutor_id = '';
    header('location:login.php');
 }
@@ -29,6 +29,7 @@ $total_comments = $select_comments->rowCount();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,76 +43,64 @@ $total_comments = $select_comments->rowCount();
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
+
 <body>
 
-<?php include '../components/admin_header.php'; ?>
-   
-<section class="dashboard">
+   <?php include '../components/admin_header.php'; ?>
 
-   <h1 class="heading">Dashboard</h1>
+   <section class="dashboard">
 
-   <div class="box-container">
+      <h1 class="heading">Dashboard</h1>
 
-      <div class="box">
-         <h3>Welcome!</h3>
-         <p><?= $fetch_profile['name']; ?></p>
-         <a href="profile.php" class="btn">View profile</a>
-      </div>
+      <div class="box-container">
 
-      <div class="box">
-         <h3><?= $total_contents; ?></h3>
-         <p>total contents</p>
-         <a href="add_content.php" class="btn">Add new content</a>
-      </div>
-
-      <div class="box">
-         <h3><?= $total_playlists; ?></h3>
-         <p>Total playlists</p>
-         <a href="add_playlist.php" class="btn">Add new playlist</a>
-      </div>
-
-      <div class="box">
-         <h3><?= $total_likes; ?></h3>
-         <p>Total likes</p>
-         <a href="contents.php" class="btn">View contents</a>
-      </div>
-
-      <div class="box">
-         <h3><?= $total_comments; ?></h3>
-         <p>Total comments</p>
-         <a href="comments.php" class="btn">View comments</a>
-      </div>
-
-      <div class="box">
-         <h3>Quick select</h3>
-         <p>Login or register</p>
-         <div class="flex-btn">
-            <a href="login.php" class="option-btn">Login</a>
-            <a href="register.php" class="option-btn">Register</a>
+         <div class="box">
+            <h3>Welcome!</h3>
+            <p><?= $fetch_profile['name']; ?></p>
+            <a href="profile.php" class="btn">View profile</a>
          </div>
+
+         <div class="box">
+            <h3><?= $total_contents; ?></h3>
+            <p>total contents</p>
+            <a href="add_content.php" class="btn">Add new content</a>
+         </div>
+
+         <div class="box">
+            <h3><?= $total_playlists; ?></h3>
+            <p>Total playlists</p>
+            <a href="add_playlist.php" class="btn">Add new playlist</a>
+         </div>
+
+         <div class="box">
+            <h3><?= $total_likes; ?></h3>
+            <p>Total likes</p>
+            <a href="contents.php" class="btn">View contents</a>
+         </div>
+
+         <div class="box">
+            <h3><?= $total_comments; ?></h3>
+            <p>Total comments</p>
+            <a href="comments.php" class="btn">View comments</a>
+         </div>
+
+         <div class="box">
+            <h3>Quick select</h3>
+            <p>Login or register</p>
+            <div class="flex-btn">
+               <a href="login.php" class="option-btn">Login</a>
+               <a href="register.php" class="option-btn">Register</a>
+            </div>
+         </div>
+
       </div>
 
-   </div>
+   </section>
 
-</section>
+   <?php include '../components/footer.php'; ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php include '../components/footer.php'; ?>
-
-<script src="../js/admin_script.js"></script>
+   <script src="../js/admin_script.js"></script>
 
 </body>
+
 </html>

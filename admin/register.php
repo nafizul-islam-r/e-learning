@@ -2,6 +2,12 @@
 
 include '../components/connect.php';
 
+if(isset($_COOKIE['tutor_id'])){
+   $user_id = $_COOKIE['user_id'];
+}else{
+   $user_id = '';
+}
+
 if(isset($_POST['submit'])){
 
    $id = unique_id();
@@ -36,6 +42,16 @@ if(isset($_POST['submit'])){
          $insert_tutor = $conn->prepare("INSERT INTO `tutors`(id, name, profession, email, password, image) VALUES(?,?,?,?,?,?)");
          $insert_tutor->execute([$id, $name, $profession, $email, $cpass, $rename]);
          move_uploaded_file($image_tmp_name, $image_folder);
+
+         $verify_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email = ? AND password = ? LIMIT 1");
+         $verify_tutor->execute([$email, $pass]);
+         $row = $verify_tutor->fetch(PDO::FETCH_ASSOC);
+         
+         if($verify_tutor->rowCount() > 0){
+            setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
+            header('location:home.php');
+         }
+
          $message[] = 'New Tutor Registered! Please Login Now';
       }
    }
