@@ -2,6 +2,12 @@
 
 include '../components/connect.php';
 
+if(isset($_COOKIE['tutor_id'])){
+   $user_id = $_COOKIE['tutor_id'];
+}else{
+   $user_id = '';
+}
+
 if(isset($_POST['submit'])){
 
    $email = $_POST['email'];
