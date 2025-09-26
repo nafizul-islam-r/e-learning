@@ -3,11 +3,7 @@
 include '../components/connect.php';
 
 if(isset($_COOKIE['tutor_id'])){
-<<<<<<< HEAD
    $user_id = $_COOKIE['tutor_id'];
-=======
-   $user_id = $_COOKIE['user_id'];
->>>>>>> 1c807ed1a6c85dc550705f706015763ea73a2a7d
 }else{
    $user_id = '';
 }
@@ -53,11 +49,7 @@ if(isset($_POST['submit'])){
          
          if($verify_tutor->rowCount() > 0){
             setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-<<<<<<< HEAD
             header('location:dashboard.php');
-=======
-            header('location:home.php');
->>>>>>> 1c807ed1a6c85dc550705f706015763ea73a2a7d
          }
 
          $message[] = 'New Tutor Registered! Please Login Now';

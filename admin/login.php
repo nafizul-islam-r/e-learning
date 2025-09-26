@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
    
    if($select_tutor->rowCount() > 0){
      setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
-     header('location:home.php');
+     header('location:dashboard.php');
    }else{
       $message[] = 'Incorrect Email or Password!';
    }
