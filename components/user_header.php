@@ -107,6 +107,8 @@ if (isset($message)) {
                aria-hidden="true"></i><span>About us</span></a>
          <a href="courses.php" class="primary-btn-1 my-2 my-sm-0"><i class="fa fa-graduation-cap mr-3"
                aria-hidden="true"></i><span>Courses</span></a>
+         <a href="user_live_classes.php" class="primary-btn-1 my-2 my-sm-0"><i class="fa fa-video mr-3"
+               aria-hidden="true"></i><span>Live Classes</span></a>
          <a href="teachers.php" class="primary-btn-1 my-2 my-sm-0"><i class="fa fa-chalkboard-user mr-3"
                aria-hidden="true"></i><span>Teachers</span></a>
          <a href="contact.php" class="primary-btn-1 my-2 my-sm-0"><i class="fa fa-headset mr-3"

@@ -58,21 +58,11 @@ if(isset($_POST['submit'])){
       <p>Your password <span>*</span></p>
       <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
       <p class="link">Don't have an account? <a href="index.html">Register Now</a></p>
+      <p class="link">Are you a tutor? <a href="admin/login.php">login here</a></p>
       <input type="submit" name="submit" value="login now" class="btn">
    </form>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include 'components/footer.php'; ?>
 
