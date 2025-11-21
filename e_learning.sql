@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2022 at 05:35 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 21, 2025 at 07:43 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `course_db`
+-- Database: `e_learning`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bookmark` (
   `user_id` varchar(20) NOT NULL,
   `playlist_id` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `comments` (
   `tutor_id` varchar(20) NOT NULL,
   `comment` varchar(1000) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ CREATE TABLE `contact` (
   `email` varchar(50) NOT NULL,
   `number` int(10) NOT NULL,
   `message` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,14 @@ CREATE TABLE `content` (
   `thumb` varchar(100) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
   `status` varchar(20) NOT NULL DEFAULT 'deactive'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `content`
+--
+
+INSERT INTO `content` (`id`, `tutor_id`, `playlist_id`, `title`, `description`, `video`, `thumb`, `date`, `status`) VALUES
+('2DAfb6DUFvWykr9zERpr', 'vfBoHJU9owU1bRtQYJ25', 'P3VOm1NRmWVHENeMLS7z', 'demo', 'demo', '66ZQApVRdndTXPZiZGUi.mp4', 'AEdoeKt7YVxdNS5uNoRH.jpeg', '2025-09-24', 'active');
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,24 @@ CREATE TABLE `likes` (
   `user_id` varchar(20) NOT NULL,
   `tutor_id` varchar(20) NOT NULL,
   `content_id` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `live_classes`
+--
+
+CREATE TABLE `live_classes` (
+  `id` varchar(50) NOT NULL,
+  `tutor_id` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_time` datetime NOT NULL,
+  `duration` int(11) NOT NULL,
+  `room_name` varchar(255) NOT NULL,
+  `join_url` varchar(500) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -104,7 +128,7 @@ CREATE TABLE `playlist` (
   `thumb` varchar(100) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
   `status` varchar(20) NOT NULL DEFAULT 'deactive'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -119,7 +143,15 @@ CREATE TABLE `tutors` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tutors`
+--
+
+INSERT INTO `tutors` (`id`, `name`, `profession`, `email`, `password`, `image`) VALUES
+('9exQgoX6tvKR3BKP0cTt', 'ACID', 'Mathametics', 'teacher@example.com', '011c945f30ce2cbafc452f39840f025693339c42', 'MuflGvVtC2zTA8UAR1mz.jpg'),
+('PlmrcpaFuDZMEu6iGWc3', 'Test', 'Mathametics', 'teacher@example1.com', '011c945f30ce2cbafc452f39840f025693339c42', 'BXC2IrjsEPA9usFyl3wE.jpg');
 
 -- --------------------------------------------------------
 
@@ -133,7 +165,25 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `image` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`) VALUES
+('MltxkE6BUQODKL8eZ7J0', 'Taseen', 'student@example.com', '011c945f30ce2cbafc452f39840f025693339c42', 'YHxOLbeszfs6sg4qWgdr.jpg');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `live_classes`
+--
+ALTER TABLE `live_classes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tutor_id` (`tutor_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
